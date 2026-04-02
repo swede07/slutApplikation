@@ -1,1 +1,79 @@
+<!DOCTYPE html>
 
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../static/login.css">
+    </head>
+    <body>
+        <h1>Admin portal</h1>
+        <div id="loginDiv">
+            <h2>Login</h2>
+            <label for="emailInput">Email</label>
+            <input type="email" id="emailInput" placeholder="Email here">
+            <label for="pswdInput">Password</label>
+            <input type="password" id="pswdInput" placeholder="Password here">
+
+            <button id="loginBtn">Login</button>
+            <button id="registerBtn">Register</button>
+        </div>
+
+        <div id="regDiv">
+            <h2>Register</h2>
+            <label for="emailRegInput">Email</label>
+            <input type="email" id="emailRegInput" placeholder="Email here">
+            <label for="pswdRegInput">Password</label>
+            <input type="password" id="pswdRegInput" placeholder="Password here">
+            <label for="nameRegInput">Full legal name</label>
+            <input type="text" id="nameRegInput" placeholder="Full name here">
+
+            <button id="registerRegBtn">Register</button>
+            <button id="loginRegBtn">Login</button>
+        </div>
+
+        <script src="" async defer></script>
+    </body>
+</html>
+
+
+<script>
+    window.addEventListener("load",function(event) {
+        document.getElementById("registerBtn").addEventListener("click",function(e) {
+            document.getElementById("loginDiv").style.display = "none";
+            document.getElementById("regDiv").style.display = "flex";
+        })
+
+
+        
+        document.getElementById("loginRegBtn").addEventListener("click",function(e) {
+            document.getElementById("loginDiv").style.display = "flex";
+            document.getElementById("regDiv").style.display = "none";
+        })
+
+
+        document.getElementById("registerRegBtn").addEventListener("click",function(e) {
+            var emailData = document.getElementById("emailRegInput").value;
+            var nameData = document.getElementById("nameRegInput").value;
+            var passwordData = document.getElementById("pswdRegInput").value;
+
+
+            var req = new XMLHttpRequest()
+            req.open("POST","http://localhost:8300/register")
+            req.setRequestHeader("Content-Type","application/json")
+            
+            req.onload = function(data) {
+                console.log(req.status)
+                if (req.status == 200) {
+                    document.getElementById("loginDiv").style.display = "flex";
+                    document.getElementById("regDiv").style.display = "none";
+                }
+            }
+
+            req.send(JSON.stringify({"email":emailData,"name":nameData,"password":passwordData}))
+        })
+    })
+</script>
