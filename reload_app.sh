@@ -1,0 +1,1 @@
+sudo rm -rf * && git clone git@github.com:swede07/slutApplikation.git .
