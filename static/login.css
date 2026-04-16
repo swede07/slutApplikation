@@ -1,1 +1,51 @@
+body {
+    background-color: rgba(219, 219, 219, 0.854);
+}
 
+h1 {
+    text-align: center;
+    margin: 0 auto;
+}
+
+#loginDiv {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 30vh;
+    margin: 0 auto;
+    background-color: rgba(196, 196, 196, 0.855);
+    left: 40vw;
+    top: 20vh;
+    border-radius: 8px;
+}
+
+#loginDiv h2 {
+    margin: 0 auto;
+}
+
+#loginDiv input {
+    width: 70%;
+    height: 10%;
+    border-radius: 8px;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+
+#loginDiv label {
+    margin: 0 auto;
+}
+
+#loginDiv button {
+    width: 50%;
+    height: 9%;
+    margin: 0 auto;
+    margin-top: 2vh;
+    top: 10%;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+#regDiv {
+    display: none;
+}
